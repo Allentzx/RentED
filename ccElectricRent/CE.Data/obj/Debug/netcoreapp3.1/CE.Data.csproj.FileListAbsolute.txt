@@ -1,0 +1,9 @@
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\bin\Debug\netcoreapp3.1\CE.Data.deps.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\bin\Debug\netcoreapp3.1\CE.Data.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.csprojAssemblyReference.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.AssemblyInfoInputs.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.AssemblyInfo.cs
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\bin\Debug\netcoreapp3.1\CE.Data.runtimeconfig.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\bin\Debug\netcoreapp3.1\CE.Data.runtimeconfig.dev.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.genruntimeconfig.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.csproj.CoreCompileInputs.cache
