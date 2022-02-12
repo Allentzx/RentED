@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ProductItem> builder)
         {
-            builder.ToTable("ProductItem");
+            builder.ToTable("ProductItems");
             builder.HasKey(x => new { x.PrlItemId, x.ProductId });
             builder.Property(x => x.ProductId).UseIdentityColumn();
             builder.HasOne(x => x.Product).WithMany(x => x.ProductItems).HasForeignKey(x => x.PrlItemId);

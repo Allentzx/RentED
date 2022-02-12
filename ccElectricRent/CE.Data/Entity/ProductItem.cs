@@ -8,6 +8,7 @@ namespace CE.Data.Entity
     {
         public int PrlItemId { get; set; }
         public int ProductId { get; set; }
+        public int Status { get; set; }
         public List<ImageProduct> ImageProducts { get; set; }
         public Product Product { get; set; }
 

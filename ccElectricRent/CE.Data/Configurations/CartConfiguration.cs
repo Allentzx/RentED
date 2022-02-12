@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
-            builder.ToTable("Cart");
+            builder.ToTable("Carts");
             builder.HasKey(x => new { x.CartId, x.UserId });
             builder.Property(x => x.CartId).UseIdentityColumn();
             builder.HasOne(x => x.AppUser).WithMany(x => x.Carts).HasForeignKey(x => x.UserId);

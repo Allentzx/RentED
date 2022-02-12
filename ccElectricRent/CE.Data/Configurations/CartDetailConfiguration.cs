@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<CartDetail> builder)
         {
-            builder.ToTable("CartDetail");
+            builder.ToTable("CartDetails");
             builder.HasKey(x => x.CartDeltailId);
             builder.Property(x => x.Quantity).IsRequired();
             builder.HasOne(x => x.Product).WithMany(x => x.CartDetails).HasForeignKey(x => x.ProductId);

@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ImageProduct> builder)
         {
-            builder.ToTable("ImageProduct");
+            builder.ToTable("ImageProducts");
             builder.HasKey(x => new { x.ImageId, x.PrlItemId });
             builder.Property(x => x.ImageId).UseIdentityColumn();
             builder.Property(x => x.Url).IsRequired();

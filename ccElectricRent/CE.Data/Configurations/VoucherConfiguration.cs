@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Voucher> builder)
         {
-            builder.ToTable("Voucher");
+            builder.ToTable("Vouchers");
             builder.HasKey(x => x.VoucherId);
             builder.Property(x => x.VoucherId).UseIdentityColumn();
             builder.Property(x => x.SaleOff).IsRequired();

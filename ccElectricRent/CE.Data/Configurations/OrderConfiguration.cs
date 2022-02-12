@@ -11,7 +11,7 @@ namespace CE.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.ToTable("Order");
+            builder.ToTable("Orders");
             builder.HasKey(x => x.OrderId);
             builder.Property(x => x.OrderId).UseIdentityColumn();
             builder.Property(x => x.TotalPrice).IsRequired();

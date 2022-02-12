@@ -8,6 +8,7 @@ namespace CE.Data.Entity
     {
         public int CartId { set; get; }
         public Guid UserId { set; get; }
+        public bool Status { get; set; }
         public List<CartDetail> CartDetails { get; set; }
         public AppUser AppUser { get; set; }
     }
