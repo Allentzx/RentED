@@ -1,0 +1,26 @@
+﻿using CE.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CE.Data.Configurations
+{
+    public class ProductConfiguration : IEntityTypeConfiguration<Product>
+    {
+        public void Configure(EntityTypeBuilder<Product> builder)
+        {
+            builder.ToTable("Products");
+
+            builder.HasKey(x => new{x.ProductId, x.CategoryId});
+            builder.Property(x => x.ProductId).UseIdentityColumn();
+            builder.Property(x => x.ProductName).IsRequired();
+            builder.Property(x => x.Quantity).IsRequired().HasDefaultValue(0);
+            builder.Property(x => x.Description).IsRequired();
+            builder.Property(x => x.Price).IsRequired();
+            builder.Property(x => x.ThumbNail).IsRequired();
+            builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x => x.CategoryId);
+        }
+    }
+}

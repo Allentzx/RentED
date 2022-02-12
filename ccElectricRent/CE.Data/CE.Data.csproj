@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="EF\" />
-    <Folder Include="Configurations\" />
   </ItemGroup>
 
 </Project>

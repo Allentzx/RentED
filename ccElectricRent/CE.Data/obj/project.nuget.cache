@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "34HmWMlPslh8qdUhKhgmPj9QpHynAIc8QXVOVLaKOS4goD5O3xhNZGN9A+1y65GHrF8l7Tq/MCm7FYADlNVSFQ==",
+  "dgSpecHash": "0KbIA/clBZGJPJ4jOYJiwpfm66/xOGe2STPsJxDKZBwCVOC9k3AIbvoWTP/AuqchmVDo2XyImxQ5GqbL9ku8VA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\CE.Data.csproj",
+  "projectFilePath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Personal Computer\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.14\\microsoft.aspnetcore.cryptography.internal.5.0.14.nupkg.sha512",

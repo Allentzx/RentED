@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\CE.Data.csproj": {}
+    "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\CE.Data.csproj": {
+    "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\CE.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj",
         "projectName": "CE.Data",
-        "projectPath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\CE.Data.csproj",
+        "projectPath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj",
         "packagesPath": "C:\\Users\\Personal Computer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\ccElectricRent\\CE.Data\\obj\\",
+        "outputPath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

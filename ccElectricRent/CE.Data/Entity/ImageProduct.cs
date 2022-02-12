@@ -9,5 +9,6 @@ namespace CE.Data.Entity
         public int ImageId { get; set; }
         public string Url { get; set; }
         public int PrlItemId { get; set; }
+        public ProductItem ProductItem { get; set; }
     }
 }

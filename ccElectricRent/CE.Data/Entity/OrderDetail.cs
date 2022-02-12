@@ -13,6 +13,8 @@ namespace CE.Data.Entity
         public DateTime RentDate { set; get; }
         public DateTime ReturnDate { set; get; }
         public int OrderId { set; get; }
+        public Product Product { set; get; }
+        public Order Order { set; get; }
 
 
     }

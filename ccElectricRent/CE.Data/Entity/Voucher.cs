@@ -13,6 +13,5 @@ namespace CE.Data.Entity
         public DateTime FinishDate { set; get; }  
         public List<Order> Orders { get; set; }
 
-
     }
 }
