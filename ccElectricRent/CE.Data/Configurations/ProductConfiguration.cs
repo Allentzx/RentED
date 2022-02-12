@@ -13,7 +13,7 @@ namespace CE.Data.Configurations
         {
             builder.ToTable("Products");
 
-            builder.HasKey(x => new{x.ProductId, x.CategoryId});
+            builder.HasKey(x => x.ProductId);
             builder.Property(x => x.ProductId).UseIdentityColumn();
             builder.Property(x => x.ProductName).IsRequired();
             builder.Property(x => x.Quantity).IsRequired().HasDefaultValue(0);

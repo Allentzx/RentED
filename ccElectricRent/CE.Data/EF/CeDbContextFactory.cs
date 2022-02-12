@@ -13,16 +13,15 @@ namespace CE.Data.EF
         public CeDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("appsettings.json")
+                 .Build();
 
             var connectionString = configuration.GetConnectionString("CeDb");
+            var optionBuilder = new DbContextOptionsBuilder<CeDbContext>();
+            optionBuilder.UseSqlServer(connectionString);
 
-            var optionsBuilder = new DbContextOptionsBuilder<CeDbContext>();
-            optionsBuilder.UseSqlServer(connectionString);
-
-            return new CeDbContext(optionsBuilder.Options);
+            return new CeDbContext(optionBuilder.Options);
         }
     }
 }

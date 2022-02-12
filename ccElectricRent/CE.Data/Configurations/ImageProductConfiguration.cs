@@ -12,7 +12,7 @@ namespace CE.Data.Configurations
         public void Configure(EntityTypeBuilder<ImageProduct> builder)
         {
             builder.ToTable("ImageProducts");
-            builder.HasKey(x => new { x.ImageId, x.PrlItemId });
+            builder.HasKey(x => x.ImageId);
             builder.Property(x => x.ImageId).UseIdentityColumn();
             builder.Property(x => x.Url).IsRequired();
             builder.HasOne(x => x.ProductItem).WithMany(x => x.ImageProducts).HasForeignKey(x => x.PrlItemId);
