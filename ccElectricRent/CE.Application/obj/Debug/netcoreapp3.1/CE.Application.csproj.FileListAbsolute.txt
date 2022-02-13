@@ -1,0 +1,6 @@
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.Data.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.ViewModel.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.Data.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.csprojAssemblyReference.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.AssemblyInfoInputs.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.AssemblyInfo.cs

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CE.Data\CE.Data.csproj" />
+    <ProjectReference Include="..\CE.ViewModel\CE.ViewModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

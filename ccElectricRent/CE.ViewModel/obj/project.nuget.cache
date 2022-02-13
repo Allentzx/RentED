@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8DykgiBtK5p06941pqpWhtJP+b2JskN8er4fSFxVklXFkaq974fRYdOrkc8xenCSN4Skq4CGQ3RvuHXQpNDkpQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.ViewModel\\CE.ViewModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Personal Computer\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
+    "C:\\Users\\Personal Computer\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
