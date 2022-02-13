@@ -12,7 +12,7 @@ namespace CE.Data.Entity
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
-        public float Price { set; get; }
+        public double Price { set; get; }
         public string ThumbNail { get; set; }
         public List<ProductItem> ProductItems { get; set; }
         public List<CartDetail> CartDetails { get; set; }

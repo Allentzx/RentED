@@ -151,7 +151,7 @@ namespace CE.Data.Migrations
                     VoucherId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VoucherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SaleOff = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SaleOff = table.Column<float>(type: "real", nullable: false),
                     StartDate = table.Column<DateTime>(type: "date", nullable: false),
                     FinishDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
@@ -190,7 +190,7 @@ namespace CE.Data.Migrations
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
                     ThumbNail = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -210,7 +210,7 @@ namespace CE.Data.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalPrice = table.Column<double>(type: "float", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "date", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VoucherId = table.Column<int>(type: "int", nullable: false),

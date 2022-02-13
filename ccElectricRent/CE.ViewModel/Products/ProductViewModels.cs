@@ -11,7 +11,7 @@ namespace CE.ViewModel.Products
         public string ProductName { set; get; }
         public int Quantity { set; get; }
         public string Description { set; get; }
-        public float Price { set; get; }
+        public double Price { set; get; }
         public string Thumbnail { get; set; }
 
         //public List<string> Categories { get; set; } = new List<string>();

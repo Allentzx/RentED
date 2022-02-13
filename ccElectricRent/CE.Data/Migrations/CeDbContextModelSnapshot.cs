@@ -224,8 +224,8 @@ namespace CE.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -289,8 +289,8 @@ namespace CE.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -346,9 +346,8 @@ namespace CE.Data.Migrations
                     b.Property<DateTime>("FinishDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("SaleOff")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("SaleOff")
+                        .HasColumnType("real");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
