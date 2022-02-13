@@ -83,3 +83,12 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectri
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\CE.ViewModel.pdb
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\CE.Application.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\CE.Application.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.csproj.CoreCompileInputs.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

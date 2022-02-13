@@ -19,3 +19,4 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Data\o
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.pdb
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.genruntimeconfig.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Data\obj\Debug\netcoreapp3.1\CE.Data.csproj.CoreCompileInputs.cache
