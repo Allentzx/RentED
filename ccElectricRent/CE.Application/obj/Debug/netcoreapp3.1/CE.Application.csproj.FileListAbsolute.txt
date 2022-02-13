@@ -4,3 +4,11 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Applic
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.csprojAssemblyReference.cache
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.AssemblyInfoInputs.cache
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.AssemblyInfo.cs
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.Application.deps.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.Application.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.Application.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\bin\Debug\netcoreapp3.1\CE.ViewModel.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.csproj.CopyComplete
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.Application\obj\Debug\netcoreapp3.1\CE.Application.pdb

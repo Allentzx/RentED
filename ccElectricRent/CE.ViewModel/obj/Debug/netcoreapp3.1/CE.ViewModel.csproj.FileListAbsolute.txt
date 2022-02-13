@@ -3,3 +3,6 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewMo
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.csprojAssemblyReference.cache
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.AssemblyInfoInputs.cache
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.AssemblyInfo.cs
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\bin\Debug\netcoreapp3.1\CE.ViewModel.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.pdb

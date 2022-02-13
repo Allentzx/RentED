@@ -59,9 +59,6 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectri
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.csproj.CoreCompileInputs.cache
-C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -82,3 +79,7 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectri
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.pdb
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\obj\Debug\netcoreapp3.1\ccElectricRent.genruntimeconfig.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\CE.ViewModel.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\CE.ViewModel.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\ccElectricRent\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.dll

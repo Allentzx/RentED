@@ -6,7 +6,7 @@ namespace CE.ViewModel.Products
 {
     public class ProductViewModels
     {
-        public int productId { set; get; }
+        public int ProductId { set; get; }
         public int CatagoryId { set; get; }
         public string ProductName { set; get; }
         public int Quantity { set; get; }
