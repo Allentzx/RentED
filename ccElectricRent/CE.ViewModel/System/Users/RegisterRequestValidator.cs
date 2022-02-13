@@ -9,12 +9,12 @@ namespace CE.ViewModel.System.Users
     {
         public RegisterRequestValidator()
         {
-            RuleFor(x => x.FullName).NotEmpty().WithMessage("First name is required")
-                .MaximumLength(200).WithMessage("First name can not over 200 characters");
+            RuleFor(x => x.FullName).NotEmpty().WithMessage("FullName name is required")
+                .MaximumLength(200).WithMessage("FullName name can not over 200 characters");
             RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required")
                 .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
                 .WithMessage("Email format not match");
-            RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Phone number is required").Matches(@"(0[1-9])+([0-9]");
+            RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Phone number is required").Matches("^[0-9]+$");
             RuleFor(x => x.UserName).NotEmpty().WithMessage("User name is required");
             RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required")
                 .MinimumLength(6).WithMessage("Password is at least 6 characters");

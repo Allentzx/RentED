@@ -9,7 +9,7 @@ namespace CE.ViewModel.Voucher
 
         public int VoucherId { set; get; }
         public string VoucherName { set; get; }
-        public string SaleOff { set; get; }
+        public float SaleOff { set; get; }
         public DateTime StartDate { set; get; }
         public DateTime FinishDate { set; get; }
     }

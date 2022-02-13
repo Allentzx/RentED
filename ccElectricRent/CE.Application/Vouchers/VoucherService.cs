@@ -37,7 +37,7 @@ namespace CE.Application.Vouchers
             var result = await _context.SaveChangesAsync();
             if (result == 0)
             {
-                return new ApiErrorResult<bool>("Create position failed");
+                return new ApiErrorResult<bool>("Create Voucher failed");
             }
             return new ApiSuccessResult<bool>();
         }
@@ -91,27 +91,6 @@ namespace CE.Application.Vouchers
             return new ApiSuccessResult<PagedResult<VoucherViewModels>>(pagedResult);
         }
 
-        public Task<ApiResult<PagedResult<VoucherViewModels>>> GetPositionPaging(GetVoucherPagingRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<ApiResult<List<ListVoucherViewModel>>> GetPositions()
-        {
-            var data = await _context.Vouchers.Where(x => x.VoucherName.Equals(true))
-                .Select(x => new ListVoucherViewModel()
-                {
-                    VoucherId = x.VoucherId,
-                    VoucherName = x.VoucherName,
-                }).ToListAsync();
-
-            return new ApiSuccessResult<List<ListVoucherViewModel>>(data);
-        }
-
-        public Task<ApiResult<List<ListVoucherViewModel>>> GetVoucher()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<ApiResult<bool>> Update(int voucherId, VoucherUpdateRequest request)
         {
@@ -124,7 +103,7 @@ namespace CE.Application.Vouchers
                  .Select(x => new Voucher()).FirstOrDefault();
                 if (checkName != null)
                 {
-                    return new ApiErrorResult<bool>("This position name already exist");
+                    return new ApiErrorResult<bool>("This Voucher name already exist");
                 }
                 else
                 {
@@ -143,6 +122,25 @@ namespace CE.Application.Vouchers
             return new ApiSuccessResult<bool>();
         }
 
-     
+        public async Task<int> Delete(int voucherId)
+        {
+            var voucher = await _context.Vouchers.FindAsync(voucherId);
+            if (voucher == null)
+                throw new Exception($"Cannot find an voucher with id {voucherId}");
+            _context.Vouchers.Remove(voucher);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<ApiResult<List<ListVoucherViewModel>>> GetVoucher()
+        {
+            var data = await _context.Vouchers.Where(x => x.VoucherName.Equals(true))
+               .Select(x => new ListVoucherViewModel()
+               {
+                   VoucherId = x.VoucherId,
+                   VoucherName = x.VoucherName,
+               }).ToListAsync();
+
+            return new ApiSuccessResult<List<ListVoucherViewModel>>(data);
+        }
     }
 }

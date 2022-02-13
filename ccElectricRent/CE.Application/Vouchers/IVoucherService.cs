@@ -17,5 +17,6 @@ namespace CE.Application.Vouchers
         Task<ApiResult<PagedResult<VoucherViewModels>>> GetVoucherPaging(GetVoucherPagingRequest request);
 
         Task<ApiResult<VoucherViewModels>> GetByID(int voucherId);
+        Task<int> Delete(int voucherId);
     }
 }
