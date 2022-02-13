@@ -46,7 +46,7 @@ namespace ccElectricRent
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
             });
@@ -119,6 +119,32 @@ namespace ccElectricRent
                         new List<string>()
                       }
                     });
+            });
+
+            string issuer = Configuration.GetValue<string>("Tokens:Issuer");
+            string signingKey = Configuration.GetValue<string>("Tokens:Key");
+            byte[] signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidateAudience = true,
+                    ValidAudience = issuer,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ClockSkew = System.TimeSpan.Zero,
+                    IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes)
+                };
             });
         }
 

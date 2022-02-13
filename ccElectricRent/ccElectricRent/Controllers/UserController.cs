@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ccElectricRent.Controllers
 {
@@ -26,14 +27,12 @@ namespace ccElectricRent.Controllers
 
         [HttpPost("authenticate")]
         [AllowAnonymous]
-        public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
+        public async Task<IActionResult> Authenticate([FromForm] LoginRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
-            var result = await _userService.Authencate(request);
-
-            if (string.IsNullOrEmpty(result.ResultObj))
+            var result = await _userService.Authenticate(request);
+            if (result.ResultObj == null)
             {
                 return BadRequest(result);
             }

@@ -33,23 +33,24 @@ namespace CE.Application.System.Users
             _config = config;
         }
 
-        public async Task<ApiResult<string>> Authencate(LoginRequest request)
+        public async Task<ApiResult<LoginVm>> Authenticate(LoginRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user == null) return new ApiErrorResult<string>("Account not existed");
+            if (user == null)
+                return new ApiErrorResult<LoginVm>("Account does not exist");
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
-                return new ApiErrorResult<string>("Login Fail");
+                return new ApiErrorResult<LoginVm>("Email or password is not correct");
             }
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new[]
             {
                 new Claim(ClaimTypes.Email,user.Email),
-                new Claim(ClaimTypes.GivenName,user.FullName),
-                new Claim(ClaimTypes.Role, string.Join(";",roles)),
-                new Claim(ClaimTypes.Name, request.UserName)
+                new Claim(ClaimTypes.GivenName, user.FullName),
+                new Claim(ClaimTypes.Name,user.UserName),
+                new Claim(ClaimTypes.Role, string.Join(";",roles))
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -60,14 +61,20 @@ namespace CE.Application.System.Users
                 expires: DateTime.Now.AddHours(3),
                 signingCredentials: creds);
 
-            return new ApiSuccessResult<string>(new JwtSecurityTokenHandler().WriteToken(token));
+            return new ApiSuccessResult<LoginVm>(new LoginVm()
+            {
+                UserId = user.Id,
+                Token = new JwtSecurityTokenHandler().WriteToken(token)
+            }
+            );
         }
+
         public async Task<ApiResult<bool>> Delete(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null)
             {
-                return new ApiErrorResult<bool>("User not existed ");
+                return new ApiErrorResult<bool>("User not existed");
             }
             var reult = await _userManager.DeleteAsync(user);
             if (reult.Succeeded)
@@ -111,14 +118,14 @@ namespace CE.Application.System.Users
 
             var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
                 .Take(request.PageSize)
-                .Select(x => new UserViewModels()
+                .Select(x => new AppUser()
                 {
                     Email = x.Email,
                     PhoneNumber = x.PhoneNumber,
                     UserName = x.UserName,
                     FullName = x.FullName,
-                    Address = x.Address,
                     Id = x.Id,
+                    Address = x.Address
                 }).ToListAsync();
 
             //4. Select and projection
@@ -127,48 +134,44 @@ namespace CE.Application.System.Users
                 TotalRecords = totalRow,
                 PageIndex = request.PageIndex,
                 PageSize = request.PageSize,
-                Items = data
             };
             return new ApiSuccessResult<PagedResult<UserViewModels>>(pagedResult);
         }
-
-       
 
         public async Task<ApiResult<bool>> Register(RegisterRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user != null)
             {
-                return new ApiErrorResult<bool>("");
+                return new ApiErrorResult<bool>("Username: This username already exists");
             }
             if (await _userManager.FindByEmailAsync(request.Email) != null)
             {
-                return new ApiErrorResult<bool>("Emai is existed");
+                return new ApiErrorResult<bool>("Email: This email already exists");
             }
-
             user = new AppUser()
             {
-                Email = request.Email,
-                FullName = request.FullName,
+                FullName= request.FullName,
                 Address = request.Address,
+                Email = request.Email,
                 UserName = request.UserName,
-                PhoneNumber = request.PhoneNumber
+                PhoneNumber = request.PhoneNumber,
             };
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
                 return new ApiSuccessResult<bool>();
             }
-            return new ApiErrorResult<bool>("Register fail");
-        }
 
+            return new ApiErrorResult<bool>("Register failed");
+        }
 
         public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null)
             {
-                return new ApiErrorResult<bool>("Account not existed");
+                return new ApiErrorResult<bool>("Account is existed");
             }
             var removedRoles = request.Roles.Where(x => x.Selected == false).Select(x => x.Name).ToList();
             foreach (var roleName in removedRoles)
@@ -192,7 +195,6 @@ namespace CE.Application.System.Users
             return new ApiSuccessResult<bool>();
         }
 
-
         public async Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request)
         {
             if (await _userManager.Users.AnyAsync(x => x.Email == request.Email && x.Id != id))
@@ -210,17 +212,7 @@ namespace CE.Application.System.Users
             {
                 return new ApiSuccessResult<bool>();
             }
-            return new ApiErrorResult<bool>("Update Fail");
-        }
-
-        Task<ApiResult<bool>> IUserService.Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<ApiResult<UserViewModels>> IUserService.GetById(Guid id)
-        {
-            throw new NotImplementedException();
+            return new ApiErrorResult<bool>("Cập nhật không thành công");
         }
     }
 }

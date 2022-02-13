@@ -9,7 +9,7 @@ namespace CE.Application.System.Users
 {
   public interface IUserService
     {
-        Task<ApiResult<string>> Authencate(LoginRequest request);
+        Task<ApiResult<LoginVm>> Authenticate(LoginRequest request);
 
         Task<ApiResult<bool>> Register(RegisterRequest request);
 
