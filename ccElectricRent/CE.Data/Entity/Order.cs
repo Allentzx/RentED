@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CE.Data.Enum;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace CE.Data.Entity
         public DateTime CreateDate { set; get; }
         public Guid UserId { set; get; }
         public int VoucherId { get; set; }
-        public int Status { get; set; }
+        public OrderStatus Status { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
         public Voucher Voucher { get; set; }
         public AppUser AppUser { get; set; }

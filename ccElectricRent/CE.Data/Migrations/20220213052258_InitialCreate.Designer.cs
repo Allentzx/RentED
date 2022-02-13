@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CE.Data.Migrations
 {
     [DbContext(typeof(CeDbContext))]
-    [Migration("20220212160216_InitialCreate")]
+    [Migration("20220213052258_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,8 +132,8 @@ namespace CE.Data.Migrations
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -317,18 +317,21 @@ namespace CE.Data.Migrations
             modelBuilder.Entity("CE.Data.Entity.ProductItem", b =>
                 {
                     b.Property<int>("PrlItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:IdentityIncrement", 1)
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("PrlItemId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductItems");
                 });
@@ -549,7 +552,7 @@ namespace CE.Data.Migrations
                 {
                     b.HasOne("CE.Data.Entity.Product", "Product")
                         .WithMany("ProductItems")
-                        .HasForeignKey("PrlItemId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

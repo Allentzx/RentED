@@ -167,7 +167,7 @@ namespace CE.Data.Migrations
                     CartId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -264,17 +264,17 @@ namespace CE.Data.Migrations
                 name: "ProductItems",
                 columns: table => new
                 {
-                    PrlItemId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    PrlItemId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductItems", x => x.PrlItemId);
                     table.ForeignKey(
-                        name: "FK_ProductItems_Products_PrlItemId",
-                        column: x => x.PrlItemId,
+                        name: "FK_ProductItems_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
@@ -368,6 +368,11 @@ namespace CE.Data.Migrations
                 name: "IX_Orders_VoucherId",
                 table: "Orders",
                 column: "VoucherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductItems_ProductId",
+                table: "ProductItems",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",

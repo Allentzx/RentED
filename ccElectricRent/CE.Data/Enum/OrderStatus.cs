@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CE.Data.Enum
 {
-    public enum Status
+    public enum OrderStatus
     {
         waiting,
         complete,

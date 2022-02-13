@@ -13,8 +13,8 @@ namespace CE.Data.Configurations
         {
             builder.ToTable("ProductItems");
             builder.HasKey(x => x.PrlItemId );
-            builder.Property(x => x.ProductId).UseIdentityColumn();
-            builder.HasOne(x => x.Product).WithMany(x => x.ProductItems).HasForeignKey(x => x.PrlItemId);
+            builder.Property(x => x.PrlItemId).UseIdentityColumn();
+            builder.HasOne(x => x.Product).WithMany(x => x.ProductItems).HasForeignKey(x => x.ProductId);
         }
     }
 }
