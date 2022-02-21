@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CE.Data.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -14,6 +15,7 @@ namespace CE.Data.Entity
         public string Description { get; set; }
         public double Price { set; get; }
         public string ThumbNail { get; set; }
+        public ProductStatus Status { get; set; }
         public List<ProductItem> ProductItems { get; set; }
         public List<CartDetail> CartDetails { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }

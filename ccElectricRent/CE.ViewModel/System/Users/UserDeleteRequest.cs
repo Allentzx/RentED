@@ -6,6 +6,6 @@ namespace CE.ViewModel.System.Users
 {
     public class UserDeleteRequest
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

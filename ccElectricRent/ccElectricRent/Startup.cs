@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ccElectricRent.Constants;
-using CE.Application.System.Roles;
 using CE.Application.System.Users;
 using CE.Application.Vouchers;
 using CE.Data.EF;
@@ -70,7 +69,6 @@ namespace ccElectricRent
 
             //Declare DI
             services.AddTransient<IVoucherService, VoucherService>();
-            services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();

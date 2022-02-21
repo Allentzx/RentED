@@ -11,11 +11,7 @@ namespace CE.Application.Vouchers
     {
         Task<ApiResult<bool>> Create(VoucherCreateRequest request);
         Task<ApiResult<bool>> Update(int voucherId, VoucherUpdateRequest request);
-
-        Task<ApiResult<List<ListVoucherViewModel>>> GetVoucher();
-
         Task<ApiResult<PagedResult<VoucherViewModels>>> GetVoucherPaging(GetVoucherPagingRequest request);
-
         Task<ApiResult<VoucherViewModels>> GetByID(int voucherId);
         Task<int> Delete(int voucherId);
     }

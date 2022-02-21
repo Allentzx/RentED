@@ -1,5 +1,6 @@
 ﻿using CE.Data.Configurations;
 using CE.Data.Entity;
+using CE.Data.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace CE.Data.EF
 {
-    public class CeDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public class CeDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         
         public CeDbContext(DbContextOptions options) : base(options)
@@ -34,11 +35,12 @@ namespace CE.Data.EF
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
-            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
-            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("AppEmpLogins").HasKey(x => x.UserId);
             modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
-            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("AppEmpTokens").HasKey(x => x.UserId);
+
+            modelBuilder.Seed();
         }
 
         public DbSet<Product> Products { get; set; }

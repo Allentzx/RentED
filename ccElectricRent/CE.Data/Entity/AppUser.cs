@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CE.Data.Entity
 {
-   public class AppUser : IdentityUser<Guid>
+   public class AppUser : IdentityUser<string>
     {
         public string FullName { get; set; }
         public string Address { get; set; }

@@ -1,4 +1,5 @@
 ﻿using CE.Data.Entity;
+using CE.Data.Enum;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -20,6 +21,7 @@ namespace CE.Data.Configurations
             builder.Property(x => x.Description).IsRequired();
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.ThumbNail).IsRequired();
+            builder.Property(x => x.Status).HasDefaultValue(ProductStatus.Stock);
             builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x => x.CategoryId);
         }
     }

@@ -30,7 +30,7 @@ namespace ccElectricRent.Controllers
         public async Task<IActionResult> Authenticate([FromForm] LoginRequest request)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+                return BadRequest();
             var result = await _userService.Authenticate(request);
             if (result.ResultObj == null)
             {
@@ -44,44 +44,29 @@ namespace ccElectricRent.Controllers
         public async Task<IActionResult> Register([FromForm] RegisterRequest request)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
+                return BadRequest();
             var result = await _userService.Register(request);
             if (!result.IsSuccessed)
             {
-                return BadRequest(result);
+                return StatusCode(StatusCodes.Status403Forbidden, result);
             }
             return Ok(result);
         }
 
         //PUT: http://localhost/api/users/id
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UserUpdateRequest request)
+        public async Task<IActionResult> Update(string id, [FromForm] UserUpdateRequest request)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
+                return BadRequest();
             var result = await _userService.Update(id, request);
             if (!result.IsSuccessed)
             {
-                return BadRequest(result);
+                return StatusCode(StatusCodes.Status403Forbidden, result);
             }
             return Ok(result);
         }
 
-        [HttpPut("{id}/roles")]
-        public async Task<IActionResult> RoleAssign(Guid id, [FromBody] RoleAssignRequest request)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var result = await _userService.RoleAssign(id, request);
-            if (!result.IsSuccessed)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
-        }
 
         //http://localhost/api/users/paging?pageIndex=1&pageSize=10&keyword=
         [HttpGet("paging")]
@@ -92,14 +77,14 @@ namespace ccElectricRent.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(string id)
         {
             var user = await _userService.GetById(id);
             return Ok(user);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(string id)
         {
             var result = await _userService.Delete(id);
             return Ok(result);

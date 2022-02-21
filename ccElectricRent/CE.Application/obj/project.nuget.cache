@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BswMgKU3B/jDBa0noFsUerRAh8RMb85mbei8a6PkLjGa6Yl0FOVIMDRmqZ5g8ZJ7RcBSUHfTY8Z52pqt4U+k2g==",
+  "dgSpecHash": "JGZrHwPajbj2nibp/deMap224KUsTg/W8uT2yMByRmZ0hnASb9wr4qUOmFJuCJI/aRI9OAOTJwxrfYr5GJKP5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Application\\CE.Application.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\Personal Computer\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\Personal Computer\\.nuget\\packages\\passwordgenerator\\2.0.5\\passwordgenerator.2.0.5.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

@@ -1,4 +1,5 @@
 ﻿using CE.Data.Entity;
+using CE.Data.Enum;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -14,6 +15,7 @@ namespace CE.Data.Configurations
             builder.ToTable("ProductItems");
             builder.HasKey(x => x.PrlItemId );
             builder.Property(x => x.PrlItemId).UseIdentityColumn();
+            builder.Property(x => x.Status).HasDefaultValue(ProductItemStatus.waiting);
             builder.HasOne(x => x.Product).WithMany(x => x.ProductItems).HasForeignKey(x => x.ProductId);
         }
     }

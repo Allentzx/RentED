@@ -1133,6 +1133,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "PasswordGenerator/2.0.5": {
+        "runtime": {
+          "lib/netstandard2.0/PasswordGenerator.dll": {
+            "assemblyVersion": "2.0.5.0",
+            "fileVersion": "2.0.5.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/PasswordGenerator.dll": {}
+        }
+      },
       "runtime.native.System/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1792,6 +1803,7 @@
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.10",
           "Microsoft.IdentityModel.Tokens": "6.15.0",
+          "PasswordGenerator": "2.0.5",
           "System.IdentityModel.Tokens.Jwt": "6.15.0"
         },
         "runtime": {
@@ -3878,6 +3890,13 @@
       "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    },
+    "PasswordGenerator/2.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q27Jl0MYvu2Fywpe2lKFBn3rZqwmWBfMhO0JFoFq2GOsedYwBNOMcyz8z72+gH3241BhlziALTo2TgYlRKSZwg==",
+      "path": "passwordgenerator/2.0.5",
+      "hashPath": "passwordgenerator.2.0.5.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",

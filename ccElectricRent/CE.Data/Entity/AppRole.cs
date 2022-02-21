@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CE.Data.Entity
 {
-   public class AppRole : IdentityRole<Guid>
+   public class AppRole : IdentityRole<string>
     {
         public string Description { get; set; }
     }

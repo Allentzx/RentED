@@ -73,11 +73,11 @@ namespace CE.Application.Vouchers
                 .Take(request.PageSize)
                 .Select(x => new VoucherViewModels()
                 {
-                    VoucherId = x.v.VoucherId,
-                    VoucherName = x.v.VoucherName,
-                    SaleOff= x.v.SaleOff,
-                    StartDate = x.v.StartDate,
-                    FinishDate = x.v.FinishDate
+                   VoucherId = x.v.VoucherId,
+                   VoucherName = x.v.VoucherName,
+                   SaleOff = x.v.SaleOff,
+                   StartDate= x.v.StartDate,
+                   FinishDate = x.v.FinishDate
                 }).ToListAsync();
 
             var pagedResult = new PagedResult<VoucherViewModels>()
@@ -129,18 +129,6 @@ namespace CE.Application.Vouchers
                 throw new Exception($"Cannot find an voucher with id {voucherId}");
             _context.Vouchers.Remove(voucher);
             return await _context.SaveChangesAsync();
-        }
-
-        public async Task<ApiResult<List<ListVoucherViewModel>>> GetVoucher()
-        {
-            var data = await _context.Vouchers.Where(x => x.VoucherName.Equals(true))
-               .Select(x => new ListVoucherViewModel()
-               {
-                   VoucherId = x.VoucherId,
-                   VoucherName = x.VoucherName,
-               }).ToListAsync();
-
-            return new ApiSuccessResult<List<ListVoucherViewModel>>(data);
         }
     }
 }

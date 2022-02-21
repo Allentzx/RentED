@@ -10,6 +10,8 @@ namespace CE.ViewModel.Common
 
         public string Message { get; set; }
 
+        public Dictionary<string, List<string>> Errors { get; set; }
+
         public T ResultObj { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T9yLi66CqD0UEhCZo2k3LDcfqCOsGuwu3rl5uf3/V+tDn17Gpspp9YT/4iyERpfaTBFUb0xxWt+zZ28sMawN+g==",
+  "dgSpecHash": "2eylpAJ9dq3OgX6ZJ+F2Tsg0C7SQ9rxtBnyakXHjgTUAjIPMLI294IPbO88xS8qjiWVXUT21LgMNgT7Zi36sLA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\ccElectricRent\\ccElectricRent.csproj",
   "expectedPackageFiles": [
@@ -73,6 +73,7 @@
     "C:\\Users\\Personal Computer\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\Personal Computer\\.nuget\\packages\\passwordgenerator\\2.0.5\\passwordgenerator.2.0.5.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\Personal Computer\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",

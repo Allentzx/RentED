@@ -23,5 +23,11 @@ namespace CE.ViewModel.Common
             IsSuccessed = false;
             ValidationErrors = validationErrors;
         }
+
+        public ApiErrorResult(Dictionary<string, List<string>> errors)
+        {
+            IsSuccessed = false;
+            Errors = errors;
+        }
     }
 }
