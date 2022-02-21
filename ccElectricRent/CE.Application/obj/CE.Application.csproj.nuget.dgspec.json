@@ -232,7 +232,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj": {
+                "projectPath": "C:\\Users\\Personal Computer\\OneDrive\\Desktop\\ngap\\RentED\\ccElectricRent\\CE.Data\\CE.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
