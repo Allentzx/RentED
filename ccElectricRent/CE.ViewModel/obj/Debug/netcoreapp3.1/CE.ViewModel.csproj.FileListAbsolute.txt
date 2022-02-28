@@ -7,3 +7,7 @@ C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewMo
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.dll
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.pdb
 C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\bin\Debug\netcoreapp3.1\CE.Data.dll
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\bin\Debug\netcoreapp3.1\CE.Data.pdb
+C:\Users\Personal Computer\OneDrive\Desktop\ngap\RentED\ccElectricRent\CE.ViewModel\obj\Debug\netcoreapp3.1\CE.ViewModel.csproj.CopyComplete

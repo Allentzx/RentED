@@ -15,6 +15,7 @@ namespace CE.Data.Configurations
             builder.HasKey(x => x.CategoryId);
             builder.Property(x => x.CategoryId).UseIdentityColumn();
             builder.Property(x => x.CategoryName).IsRequired();
+            builder.Property(x => x.Thumbnail).IsRequired();
         }
     }
 }

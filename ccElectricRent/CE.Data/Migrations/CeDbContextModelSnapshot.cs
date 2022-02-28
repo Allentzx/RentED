@@ -31,11 +31,29 @@ namespace CE.Data.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("AppConfigs");
+
+                    b.HasData(
+                        new
+                        {
+                            Key = "HomeTitle",
+                            Value = "This is home page of RentED system"
+                        },
+                        new
+                        {
+                            Key = "HomeKeyword",
+                            Value = "This is keyword of RentED system"
+                        },
+                        new
+                        {
+                            Key = "HomeDescription",
+                            Value = "This is description of RentED system"
+                        });
                 });
 
             modelBuilder.Entity("CE.Data.Entity.AppRole", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -55,6 +73,16 @@ namespace CE.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
+                            ConcurrencyStamp = "b4c1bb1b-140e-4e58-a6d4-2436d44f9a55",
+                            Description = "Administrator role",
+                            Name = "admin",
+                            NormalizedName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("CE.Data.Entity.AppUser", b =>
@@ -118,6 +146,26 @@ namespace CE.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Address = "249 ltt p10",
+                            ConcurrencyStamp = "c389f583-8b10-4846-8651-8f9de19214ed",
+                            Email = "abc@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Than Tuan",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "abc@gmail.com",
+                            NormalizedUserName = "admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFa3isiHyqpkjiRzd8v0UejksHfVCDvGa+uJ+Fe8RcrVYI8etKt4L6Q9Jd9FoJYLFQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("CE.Data.Entity.Cart", b =>
@@ -179,6 +227,10 @@ namespace CE.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thumbnail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -344,6 +396,29 @@ namespace CE.Data.Migrations
                     b.ToTable("ProductItems");
                 });
 
+            modelBuilder.Entity("CE.Data.Entity.Specific", b =>
+                {
+                    b.Property<int>("SpecId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SpecId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Specifics");
+                });
+
             modelBuilder.Entity("CE.Data.Entity.Voucher", b =>
                 {
                     b.Property<int>("VoucherId")
@@ -484,6 +559,13 @@ namespace CE.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            RoleId = "8D04DCE2-969A-435D-BBA4-DF3F325983DC"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -602,6 +684,17 @@ namespace CE.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("CE.Data.Entity.Specific", b =>
+                {
+                    b.HasOne("CE.Data.Entity.Product", "Product")
+                        .WithMany("Specifics")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("CE.Data.Entity.AppUser", b =>
                 {
                     b.Navigation("Carts");
@@ -631,6 +724,8 @@ namespace CE.Data.Migrations
                     b.Navigation("OrderDetails");
 
                     b.Navigation("ProductItems");
+
+                    b.Navigation("Specifics");
                 });
 
             modelBuilder.Entity("CE.Data.Entity.ProductItem", b =>

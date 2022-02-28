@@ -8,6 +8,7 @@ namespace CE.Data.Entity
     {
         public int CategoryId { set; get; }
         public string CategoryName { get; set; }
+        public string Thumbnail { get; set; }
         public List<Product> Products { get; set; }
 
     }

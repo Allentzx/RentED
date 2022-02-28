@@ -12,5 +12,6 @@ namespace CE.ViewModel.Products
         public int? CatagoryId { set; get; }
         public string CatagoryName { set; get; }
         public List<CartDetailViewModels> CartDetails { get; set; }
+        public List<ProductItemViewModels> ProductItems { get; set; }
     }
 }

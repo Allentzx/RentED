@@ -7,7 +7,8 @@ namespace CE.Data.Enum
     public enum OrderStatus
     {
         waiting,
-        complete,
-        cancel
+        accecpt,
+        cancel,
+        finish,
     }
 }

@@ -29,6 +29,8 @@ namespace CE.Data.EF
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new VoucherConfiguration());
+            modelBuilder.ApplyConfiguration(new SpecificConfiguration());
+
 
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
@@ -51,6 +53,7 @@ namespace CE.Data.EF
         public DbSet<CartDetail> CartDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Specific> Specifics { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
        
 

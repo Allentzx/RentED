@@ -1836,6 +1836,7 @@
           "AutoMapper": "10.1.1",
           "AutoMapper.Extensions": "2.1.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
+          "CE.Data": "1.0.0",
           "FluentValidation": "8.6.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.10"
         },

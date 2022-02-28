@@ -7,7 +7,7 @@ namespace CE.Data.Enum
    public enum ProductItemStatus
     {
         waiting,
-        complete,
-        cancel
+        onGoing,
+        available
     }
 }

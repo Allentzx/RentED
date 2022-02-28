@@ -137,7 +137,8 @@ namespace CE.Data.Migrations
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Thumbnail = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -312,6 +313,27 @@ namespace CE.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Specifics",
+                columns: table => new
+                {
+                    SpecId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ProductKey = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Specifics", x => x.SpecId);
+                    table.ForeignKey(
+                        name: "FK_Specifics_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OrderDetails",
                 columns: table => new
                 {
@@ -359,6 +381,31 @@ namespace CE.Data.Migrations
                         principalColumn: "PrlItemId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AppConfigs",
+                columns: new[] { "Key", "Value" },
+                values: new object[,]
+                {
+                    { "HomeTitle", "This is home page of RentED system" },
+                    { "HomeKeyword", "This is keyword of RentED system" },
+                    { "HomeDescription", "This is description of RentED system" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AppRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
+                values: new object[] { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "b4c1bb1b-140e-4e58-a6d4-2436d44f9a55", "Administrator role", "admin", "admin" });
+
+            migrationBuilder.InsertData(
+                table: "AppUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "69BD714F-9576-45BA-B5B7-F00649BE00DE" });
+
+            migrationBuilder.InsertData(
+                table: "AppUsers",
+                columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "69BD714F-9576-45BA-B5B7-F00649BE00DE", 0, "249 ltt p10", "c389f583-8b10-4846-8651-8f9de19214ed", "abc@gmail.com", true, "Than Tuan", false, null, "abc@gmail.com", "admin", "AQAAAAEAACcQAAAAEFa3isiHyqpkjiRzd8v0UejksHfVCDvGa+uJ+Fe8RcrVYI8etKt4L6Q9Jd9FoJYLFQ==", null, false, "", false, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CartDetails_CartId",
@@ -409,6 +456,11 @@ namespace CE.Data.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Specifics_ProductId",
+                table: "Specifics",
+                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -445,6 +497,9 @@ namespace CE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "RoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "Specifics");
 
             migrationBuilder.DropTable(
                 name: "UserClaims");
