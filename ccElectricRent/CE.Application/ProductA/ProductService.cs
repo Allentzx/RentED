@@ -137,16 +137,21 @@ namespace CE.Application.ProductA
 
         public async Task<ApiResult<List<ProductViewModels>>> GetProductByCategoryId(int categoryId)
         {
-            var data = await _context.Products.Where(x => x.CategoryId.Equals(categoryId))
+            var query = from p in _context.Products
+                        join c in _context.Categories on p.CategoryId equals c.CategoryId
+                        select new { c, p };
+            var data = await query.Where(x => x.p.CategoryId.Equals(categoryId))
                .Select(x => new ProductViewModels()
                 {
-                    ProductId = x.ProductId,
-                    ProductName = x.ProductName,
-                    Quantity= x.Quantity,
-                    Description= x.Description,
-                    Thumbnail =x.ThumbNail,
-                    Price = x.Price,
-                    Status = x.Status
+                    ProductId = x.p.ProductId,
+                    ProductName = x.p.ProductName,
+                    Quantity= x.p.Quantity,
+                    CatagoryId= x.p.CategoryId,
+                    CatagoryName= x.c.CategoryName,
+                    Description= x.p.Description,
+                    Thumbnail =x.p.ThumbNail,
+                    Price = x.p.Price,
+                    Status = x.p.Status
                 }).ToListAsync();
 
             return new ApiSuccessResult<List<ProductViewModels>>(data);
