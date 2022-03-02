@@ -13,9 +13,10 @@ namespace CE.Data.Configurations
         {
             builder.ToTable("Specifics");
             builder.HasKey(x => x.SpecId);
+            builder.Property(x => x.SpecId).UseIdentityColumn();
             builder.Property(x => x.ProductKey);
             builder.Property(x => x.Value);
-            builder.HasOne(x => x.Product).WithMany(x => x.Specifics).HasForeignKey(x => x.ProductId);
+            //builder.HasOne(x => x.Product).WithMany(x => x.Specifics).HasForeignKey(x => x.ProductId);
         }
     }
 }

@@ -6,12 +6,11 @@ namespace CE.ViewModel.Products
 {
     public class ProductCreateRequest
     {
-        public int ProductId { set; get; }
         public string ProductName { set; get; }
         public int CatagoryId { set; get; }
         public int Quantity { set; get; }
         public string Description { set; get; }
         public double Price { set; get; }
-        public string Thumbnail { get; set; }
+        public string ThumbNail { get; set; }
     }
 }

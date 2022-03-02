@@ -19,7 +19,7 @@ namespace CE.Data.Entity
         public List<ProductItem> ProductItems { get; set; }
         public List<CartDetail> CartDetails { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
-         public List<Specific> Specifics { get; set; }
+        public List<SpecInProduct> SpecInProducts { get; set; }
         public Category Category { get; set; }
     }
 }

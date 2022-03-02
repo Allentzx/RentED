@@ -16,8 +16,4 @@
     <ProjectReference Include="..\CE.Data\CE.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Order\" />
-  </ItemGroup>
-
 </Project>

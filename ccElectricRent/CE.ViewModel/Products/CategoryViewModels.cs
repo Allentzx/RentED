@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CE.ViewModel.Catagory
+namespace CE.ViewModel.Products
 {
     public class CategoryViewModels
     {
