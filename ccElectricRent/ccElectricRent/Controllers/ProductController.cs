@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CE.Application.ProductA;
+﻿using CE.Application.ProductA;
 using CE.ViewModel.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ccElectricRent.Controllers
 {
@@ -42,12 +39,6 @@ namespace ccElectricRent.Controllers
             return Ok(p);
         }
 
-        [HttpGet("{categoryId}")]
-        public async Task<IActionResult> GetCategoryID(int categoryId)
-        {
-            var c = await _productService.GetCategoryID(categoryId);
-            return Ok(c);
-        }
 
         [HttpGet("paging")]
         public async Task<IActionResult> GetPositionPaging([FromQuery] GetManageProductPagingRequest request)
@@ -73,11 +64,11 @@ namespace ccElectricRent.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetProductByCategoryId{categoryId}")]
+        [HttpGet("GetProductByCategoryId/{categoryId}")]
         public async Task<IActionResult> GetProductByCategoryId(int categoryId)
         {
-            var pc = await _productService.GetProductByCategoryId(categoryId);
-            return Ok(pc);
+            var categories = await _productService.GetProductByCategoryId(categoryId);
+            return Ok(categories);
         }
 
 

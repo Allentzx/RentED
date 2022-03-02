@@ -96,6 +96,7 @@ namespace CE.Application.ProductA
                     ProductId = x.p.ProductId,
                     ProductName = x.p.ProductName,
                     CatagoryId = x.p.CategoryId,
+                    CatagoryName= x.c.CategoryName,
                     Description = x.p.Description,
                     Quantity = x.p.Quantity,
                     Price = x.p.Price,
@@ -115,55 +116,42 @@ namespace CE.Application.ProductA
 
         public async Task<ApiResult<ProductViewModels>> GetByID(int productId)
         {
-            var p = await _context.Products.FindAsync(productId);
-            if (p == null) return new ApiErrorResult<ProductViewModels>("Product does not exist");
-
-            var productViewModel = new ProductViewModels()
+            var query = from p in _context.Products
+                        join c in _context.Categories on p.CategoryId equals c.CategoryId
+                        select new { c, p };
+            var pVm = await query.Where(x => x.p.ProductId.Equals(productId)).Select(x => new ProductViewModels()
             {
-                ProductId = productId,
-                ProductName = p.ProductName,
-                Description =p.Description,
-                Quantity = p .Quantity,
-                CatagoryId = p.CategoryId,
-                Price= p.Price,
-                Thumbnail= p.ThumbNail,
-                Status = p.Status
-            };
-
-            return new ApiSuccessResult<ProductViewModels>(productViewModel);
-        }
-
-        public async Task<ApiResult<CategoryViewModels>> GetCategoryID(int categoryId)
-        {
-            var c = await _context.Categories.FindAsync(categoryId);
-            if (c == null) return new ApiErrorResult<CategoryViewModels>("Category does not exist");
-
-            var cViewModel = new CategoryViewModels()
-            {
-                CategoryId = categoryId,
-                CategoryName = c.CategoryName,
-                
-            };
-            return new ApiSuccessResult<CategoryViewModels>(cViewModel);
+                ProductId = x.p.ProductId,
+                ProductName = x.p.ProductName,
+                CatagoryId = x.p.CategoryId,
+                CatagoryName = x.c.CategoryName,
+                Description = x.p.Description,
+                Quantity = x.p.Quantity,
+                Price = x.p.Price,
+                Thumbnail = x.p.ThumbNail,
+                Status = x.p.Status
+            }).FirstOrDefaultAsync();
+            if (pVm == null) return new ApiErrorResult<ProductViewModels>("Product does not exist");
+            return new ApiSuccessResult<ProductViewModels>(pVm);
         }
 
         public async Task<ApiResult<List<ProductViewModels>>> GetProductByCategoryId(int categoryId)
         {
-            var data = await _context.Products.Where(x => x.CategoryId.Equals(categoryId) && x.Status.Equals(true))
-                .Select(x => new ProductViewModels()
+            var data = await _context.Products.Where(x => x.CategoryId.Equals(categoryId))
+               .Select(x => new ProductViewModels()
                 {
                     ProductId = x.ProductId,
                     ProductName = x.ProductName,
-                    Description = x.Description,
-                    Quantity = x.Quantity,
+                    Quantity= x.Quantity,
+                    Description= x.Description,
+                    Thumbnail =x.ThumbNail,
                     Price = x.Price,
-                    Thumbnail = x.ThumbNail,
                     Status = x.Status
                 }).ToListAsync();
 
             return new ApiSuccessResult<List<ProductViewModels>>(data);
         }
-       
+
         public async Task<ApiResult<bool>> Update(int productId ,ProductUpdateRequest request)
         {
             Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
