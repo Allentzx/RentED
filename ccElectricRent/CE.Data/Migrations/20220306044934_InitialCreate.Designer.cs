@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CE.Data.Migrations
 {
     [DbContext(typeof(CeDbContext))]
-    [Migration("20220302111931_InitialCreate")]
+    [Migration("20220306044934_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,7 +80,7 @@ namespace CE.Data.Migrations
                         new
                         {
                             Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "4db24ee7-483e-4310-8ed6-e6cd871770c0",
+                            ConcurrencyStamp = "352637c4-2f76-462c-a824-f0b7fb566c1d",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -155,14 +155,14 @@ namespace CE.Data.Migrations
                             Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
                             Address = "249 ltt p10",
-                            ConcurrencyStamp = "6c796e8f-2a17-41c8-bc6c-c1d19d9164b0",
+                            ConcurrencyStamp = "74b605c8-3d71-48c9-a971-3d994b7b93a1",
                             Email = "abc@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Than Tuan",
                             LockoutEnabled = false,
                             NormalizedEmail = "abc@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAENkxWVp9S9UKPST/3VC4OO/GgzDH87Wpb19Afd8dRVVXS2F72bcnb7MnJJCTzbkR4w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMBKSUcWmaecO99rszNZFcGAFWX/9kMbyn2M5AspRjZXj5GuRTsDq+57ou1y10Ceyg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -398,21 +398,6 @@ namespace CE.Data.Migrations
                     b.ToTable("ProductItems");
                 });
 
-            modelBuilder.Entity("CE.Data.Entity.SpecInProduct", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "SpecId");
-
-                    b.HasIndex("SpecId");
-
-                    b.ToTable("SpecInProducts");
-                });
-
             modelBuilder.Entity("CE.Data.Entity.Specific", b =>
                 {
                     b.Property<int>("SpecId")
@@ -422,7 +407,7 @@ namespace CE.Data.Migrations
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductKey")
@@ -432,6 +417,8 @@ namespace CE.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SpecId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Specifics");
                 });
@@ -701,23 +688,15 @@ namespace CE.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("CE.Data.Entity.SpecInProduct", b =>
+            modelBuilder.Entity("CE.Data.Entity.Specific", b =>
                 {
                     b.HasOne("CE.Data.Entity.Product", "Product")
-                        .WithMany("SpecInProducts")
+                        .WithMany("Specifics")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CE.Data.Entity.Specific", "Specific")
-                        .WithMany("SpecInProducts")
-                        .HasForeignKey("SpecId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Product");
-
-                    b.Navigation("Specific");
                 });
 
             modelBuilder.Entity("CE.Data.Entity.AppUser", b =>
@@ -750,17 +729,12 @@ namespace CE.Data.Migrations
 
                     b.Navigation("ProductItems");
 
-                    b.Navigation("SpecInProducts");
+                    b.Navigation("Specifics");
                 });
 
             modelBuilder.Entity("CE.Data.Entity.ProductItem", b =>
                 {
                     b.Navigation("ImageProducts");
-                });
-
-            modelBuilder.Entity("CE.Data.Entity.Specific", b =>
-                {
-                    b.Navigation("SpecInProducts");
                 });
 
             modelBuilder.Entity("CE.Data.Entity.Voucher", b =>

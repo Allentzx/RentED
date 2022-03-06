@@ -16,7 +16,7 @@ namespace CE.Data.Configurations
             builder.Property(x => x.SpecId).UseIdentityColumn();
             builder.Property(x => x.ProductKey);
             builder.Property(x => x.Value);
-            //builder.HasOne(x => x.Product).WithMany(x => x.Specifics).HasForeignKey(x => x.ProductId);
+            builder.HasOne(x => x.Product).WithMany(x => x.Specifics).HasForeignKey(x => x.ProductId);
         }
     }
 }

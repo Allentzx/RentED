@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CE.Data.Entity
+namespace CE.ViewModel.SpecificA
 {
-    public class Specific
+   public class SpecificCreateRequest
     {
         public int SpecId { get; set; }
-        public int ProductId { get; set; }
         public string ProductKey { get; set; }
         public string Value { get; set; }
-        public Product Product { get; set; }
     }
 }

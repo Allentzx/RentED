@@ -63,6 +63,7 @@ namespace CE.Application.ProductA
                 Price = request.Price
             };
             _context.Products.Add(product);
+
             var result = await _context.SaveChangesAsync();
             if (result == 0)
             {
