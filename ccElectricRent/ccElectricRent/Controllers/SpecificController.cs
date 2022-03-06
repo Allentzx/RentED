@@ -58,5 +58,23 @@ namespace ccElectricRent.Controllers
             }
             return Ok(result);
         }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageSpecificPagingRequest request)
+        {
+            var p = await _specifictService.GetAllPaging(request);
+            return Ok(p);
+        }
+        [HttpGet("getSpecific/{productId}")]
+        public async Task<IActionResult> GetSpecificByProductId(int productId, [FromQuery] GetManageSpecificPagingRequest request)
+        {
+            var pr = await _specifictService.GetSpecificByProductId(productId, request);
+            return Ok(pr);
+        }
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetByID(int productId)
+        {
+            var pro = await _specifictService.GetByID(productId);
+            return Ok(pro);
+        }
     }
 }

@@ -107,9 +107,33 @@ namespace CE.Application.SpecificS
             return new ApiSuccessResult<bool>();
         }
 
-        public Task<ApiResult<PagedResult<SpecificViewModels>>> GetAllPaging(GetManageSpecificPagingRequest request)
+        public async Task<ApiResult<PagedResult<SpecificViewModels>>> GetAllPaging(GetManageSpecificPagingRequest request)
         {
-            throw new NotImplementedException();
+            var query = from s in _context.Specifics
+                        join p in _context.Products on s.ProductId equals p.ProductId
+                        select new { p, s };
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(x => x.p.ProductName.Contains(request.Keyword));
+            }
+            int totalRow = await query.CountAsync();
+            var data = await query.OrderBy(x => x.p.ProductId).Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize).Select(x => new SpecificViewModels()
+                {
+                    SpecId = x.s.SpecId,
+                    ProductKey = x.s.ProductKey,
+                    Value = x.s.Value,
+                    ProductId = x.p.ProductId
+                }).ToListAsync();
+            var pagedResult = new PagedResult<SpecificViewModels>()
+            {
+                TotalRecords = totalRow,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                Items = data
+            };
+
+            return new ApiSuccessResult<PagedResult<SpecificViewModels>>(pagedResult);
         }
 
         public async Task<ApiResult<SpecificViewModels>> GetByID(int specId)
@@ -129,9 +153,51 @@ namespace CE.Application.SpecificS
             return new ApiSuccessResult<SpecificViewModels>(sVm);
         }
 
-        public Task<ApiResult<ListSpecificViewModel>> GetSpecificByProductId(int productId, GetManageSpecificPagingRequest request)
+        public async Task<ApiResult<ListSpecificViewModel>> GetSpecificByProductId(int productId, GetManageSpecificPagingRequest request)
         {
-            throw new NotImplementedException();
+            bool check = true;
+            var specific = await _context.Specifics.Where(x => x.ProductId.Equals(productId))
+                .Select(x => new Specific()
+                {
+                    ProductId = x.ProductId,
+                }).ToListAsync();
+      
+            var query = from s in _context.Specifics
+                        select new { s };
+            query = query.Where(x => x.s.ProductId.Equals(productId));
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(x => x.s.ProductKey.Contains(request.Keyword));
+            }
+
+            //Paging
+            int totalRow = await query.CountAsync();
+
+            var data = await query
+                .Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(x => new SpecificViewModels()
+                {
+                    SpecId = x.s.SpecId,
+                    ProductKey = x.s.ProductKey,
+                    Value = x.s.Value,
+                    ProductId = x.s.ProductId
+                }).ToListAsync();
+            
+            //Select and projection
+            var pagedResult = new PagedResult<SpecificViewModels>()
+            {
+                TotalRecords = totalRow,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                Items = data
+            };
+            var listSpecViewModel = new ListSpecificViewModel()
+            {
+                IsCreateNew = check,
+                Data = pagedResult
+            };
+            return new ApiSuccessResult<ListSpecificViewModel>(listSpecViewModel);
         }
 
         public async Task<ApiResult<bool>> Update(int specId, SpecificUpdateRequest request)

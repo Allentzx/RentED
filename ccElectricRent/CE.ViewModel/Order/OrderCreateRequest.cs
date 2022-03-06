@@ -5,9 +5,8 @@ using System.Text;
 
 namespace CE.ViewModel.Order
 {
-    public class OrderViewModels
+    public class OrderCreateRequest
     {
-        public int OrderId { get; set; }
         public string UserId { get; set; }
         public string VoucherId { get; set; }
         public OrderStatus Status { get; set; }

@@ -9,6 +9,6 @@ namespace CE.ViewModel.SpecificA
     public class ListSpecificViewModel
     {
         public bool IsCreateNew { get; set; }
-        public PagedResult<ProductViewModels> Data { get; set; }
+        public PagedResult<SpecificViewModels> Data { get; set; }
     }
 }
