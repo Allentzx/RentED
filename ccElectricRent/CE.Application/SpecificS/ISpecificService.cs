@@ -9,12 +9,12 @@ namespace CE.Application.SpecificS
 {
   public interface ISpecificService
     {
-        Task<ApiResult<int>> Create(string productId, SpecificCreateRequest request);
+        Task<ApiResult<int>> Create(int productId, SpecificCreateRequest request);
 
-        Task<ApiResult<bool>> Update(int SpecId, SpecificUpdateRequest request);
-        public Task<int> Delete(int SpecId);
-        public Task<ApiResult<SpecificViewModels>> GetByID(int SpecId);
-        public Task<ApiResult<PagedResult<SpecificViewModels>>> GetAllPaging(GetManageSpecificPagingRequest request);
-        public Task<ApiResult<List<SpecificViewModels>>> GetByProductId(int ProductId);
+        Task<ApiResult<bool>> Update(int specId, SpecificUpdateRequest request);
+        Task<ApiResult<bool>> Delete(int specId);
+        Task<ApiResult<SpecificViewModels>> GetByID(int specId);
+        Task<ApiResult<PagedResult<SpecificViewModels>>> GetAllPaging(GetManageSpecificPagingRequest request);
+        Task<ApiResult<ListSpecificViewModel>> GetSpecificByProductId(int productId, GetManageSpecificPagingRequest request);
     }
 }
