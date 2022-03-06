@@ -6,7 +6,7 @@ namespace CE.ViewModel.SpecificA
 {
     public class SpecificUpdateRequest
     {
-        public int SpecId { get; set; }
+        public int ProductId { get; set; }
         public string ProductKey { get; set; }
         public string Value { get; set; }
     }

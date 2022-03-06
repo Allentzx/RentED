@@ -148,6 +148,7 @@ namespace CE.Application.SpecificS
             {
                 return new ApiErrorResult<bool>(errors);
             }
+            specific.ProductId = request.ProductId;
             specific.ProductKey = request.ProductKey;
             specific.Value = request.Value;
             _context.Specifics.Update(specific);
