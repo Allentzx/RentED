@@ -180,8 +180,8 @@ namespace CE.Application.ProductA
             {
                 ProductId = x.p.ProductId,
                 ProductName = x.p.ProductName,
-                CategeryId = x.p.CategoryId,
-                CategeryName = x.c.CategoryName,
+                CategoryId = x.p.CategoryId,
+                CategoryName = x.c.CategoryName,
                 Description = x.p.Description,
                 Quantity = x.p.Quantity,
                 Price = x.p.Price,

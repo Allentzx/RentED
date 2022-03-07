@@ -87,25 +87,6 @@ namespace ccElectricRent.Controllers
             return Ok(result);
         }
 
-        public async Task<IActionResult> CreateCate([FromBody] CategoriesCreateRequest request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-            var result = await _productService.CreateCate(request);
-
-            if (!result.IsSuccessed)
-            {
-                return StatusCode(StatusCodes.Status403Forbidden, result);
-            }
-            return Ok(result);
-        }
-        [HttpGet("paging")]
-        public async Task<IActionResult> GetAllCatePaging([FromQuery] GetManageCatePagingRequest1 request)
-        {
-            var products = await _productService.GetAllCatePaging(request);
-            return Ok(products);
-        }
+       
     }
 }
