@@ -72,6 +72,34 @@ namespace CE.Application.ProductA
             return new ApiSuccessResult<bool>();
         }
 
+        public async Task<ApiResult<bool>> CreateCate(CategoriesCreateRequest request)
+        {
+            Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
+            var checkName = await _context.Categories.Where(x => x.CategoryName.Equals(request.CategoryName))
+                .Select(x => new Category()).FirstOrDefaultAsync();
+            if (checkName != null)
+            {
+                UltilitiesService.AddOrUpdateError(errors, "Name", "This name already exists");
+            }
+            if (errors.Count() > 0)
+            {
+                return new ApiErrorResult<bool>(errors);
+            }
+            var cate = new Category()
+            {
+                CategoryName = request.CategoryName,
+                Thumbnail = request.Thumbnail
+            };
+            _context.Categories.Add(cate);
+
+            var result = await _context.SaveChangesAsync();
+            if (result == 0)
+            {
+                return new ApiErrorResult<bool>("Create Categories failed");
+            }
+            return new ApiSuccessResult<bool>();
+        }
+
         public async Task<int> Delete(int productId)
         {
             var voucher = await _context.Vouchers.FindAsync(productId);
@@ -79,6 +107,34 @@ namespace CE.Application.ProductA
                 throw new Exception($"Cannot find an product with id {productId}");
             _context.Vouchers.Remove(voucher);
             return await _context.SaveChangesAsync(); throw new NotImplementedException();
+        }
+
+        public async Task<ApiResult<PagedResult<CategoryViewModels>>> GetAllCatePaging(GetManageCatePagingRequest1 request)
+        {
+            var query = from c in _context.Categories
+                        select new {  c };
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(x => x.c.CategoryName.Contains(request.Keyword));
+            }
+            int totalRow = await query.CountAsync();
+            var data = await query.OrderBy(x => x.c.CategoryId).Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize).Select(x => new CategoryViewModels()
+                {
+                   
+                    CategoryId = x.c.CategoryId,
+                    CategoryName = x.c.CategoryName,
+                    Thumbnail = x.c.Thumbnail,
+                }).ToListAsync();
+            var pagedResult = new PagedResult<CategoryViewModels>()
+            {
+                TotalRecords = totalRow,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                Items = data
+            };
+
+            return new ApiSuccessResult<PagedResult<CategoryViewModels>>(pagedResult);
         }
 
         public async Task<ApiResult<PagedResult<ProductViewModels>>> GetAllPaging(GetManageProductPagingRequest request)
@@ -96,8 +152,8 @@ namespace CE.Application.ProductA
                 {
                     ProductId = x.p.ProductId,
                     ProductName = x.p.ProductName,
-                    CatagoryId = x.p.CategoryId,
-                    CatagoryName= x.c.CategoryName,
+                    CategoryId = x.p.CategoryId,
+                    CategoryName= x.c.CategoryName,
                     Description = x.p.Description,
                     Quantity = x.p.Quantity,
                     Price = x.p.Price,
@@ -124,8 +180,8 @@ namespace CE.Application.ProductA
             {
                 ProductId = x.p.ProductId,
                 ProductName = x.p.ProductName,
-                CatagoryId = x.p.CategoryId,
-                CatagoryName = x.c.CategoryName,
+                CategeryId = x.p.CategoryId,
+                CategeryName = x.c.CategoryName,
                 Description = x.p.Description,
                 Quantity = x.p.Quantity,
                 Price = x.p.Price,
@@ -147,8 +203,8 @@ namespace CE.Application.ProductA
                     ProductId = x.p.ProductId,
                     ProductName = x.p.ProductName,
                     Quantity= x.p.Quantity,
-                    CatagoryId= x.p.CategoryId,
-                    CatagoryName= x.c.CategoryName,
+                    CategoryId= x.p.CategoryId,
+                    CategoryName= x.c.CategoryName,
                     Description= x.p.Description,
                     Thumbnail =x.p.ThumbNail,
                     Price = x.p.Price,

@@ -9,8 +9,8 @@ namespace CE.ViewModel.Products
     {
         public int ProductId { set; get; }
         public string ProductName { set; get; }
-        public int? CatagoryId { set; get; }
-        public string CatagoryName { set; get; }
+        public int? CategoryId { set; get; }
+        public string CategoryName { set; get; }
         public int Quantity { set; get; }
         public string Description { set; get; }
         public double Price { set; get; }

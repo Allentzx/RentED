@@ -13,6 +13,9 @@ namespace CE.Application.ProductA
        public Task<ApiResult<int>> ChangeStatus(int productId);
        public Task<ApiResult<ProductViewModels>> GetByID(int productId);
        public Task<ApiResult<PagedResult<ProductViewModels>>> GetAllPaging(GetManageProductPagingRequest request);
-       public Task<ApiResult<List<ProductViewModels>>> GetProductByCategoryId(int categoryId);    
+       public Task<ApiResult<List<ProductViewModels>>> GetProductByCategoryId(int categoryId);
+       public Task<ApiResult<bool>> CreateCate(CategoriesCreateRequest request);
+       public Task<ApiResult<PagedResult<CategoryViewModels>>> GetAllCatePaging(GetManageCatePagingRequest1 request);
+
     }
 }

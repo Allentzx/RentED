@@ -41,7 +41,7 @@ namespace ccElectricRent.Controllers
 
 
         [HttpGet("paging")]
-        public async Task<IActionResult> GetPositionPaging([FromQuery] GetManageProductPagingRequest request)
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageProductPagingRequest request)
         {
             var products = await _productService.GetAllPaging(request);
             return Ok(products);
@@ -85,6 +85,27 @@ namespace ccElectricRent.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, result);
             }
             return Ok(result);
+        }
+
+        public async Task<IActionResult> CreateCate([FromBody] CategoriesCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var result = await _productService.CreateCate(request);
+
+            if (!result.IsSuccessed)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, result);
+            }
+            return Ok(result);
+        }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllCatePaging([FromQuery] GetManageCatePagingRequest1 request)
+        {
+            var products = await _productService.GetAllCatePaging(request);
+            return Ok(products);
         }
     }
 }
