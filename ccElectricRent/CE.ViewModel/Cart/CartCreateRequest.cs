@@ -7,10 +7,7 @@ namespace CE.ViewModel.Cart
 {
     public class CartCreateRequest
     {
-        public int CartId { get; set; }
         public string UserId { get; set; }
-        public string FullName { get; set; }
         public CartStatus Status { get; set; }
-        public List<CartDetailViewModels> CartDetails { get; set; }
     }
 }

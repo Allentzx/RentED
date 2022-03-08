@@ -47,7 +47,7 @@ namespace CE.Application.ProductA
             {
                 UltilitiesService.AddOrUpdateError(errors, "ProductName", "This name already exists");
             }
-            var category = await _context.Categories.FindAsync(request.CatagoryId);
+            var category = await _context.AppUser.FindAsync(request.CatagoryId);
             if (category == null) UltilitiesService.AddOrUpdateError(errors, "CategoryId", "Category not found");
             if (errors.Count() > 0)
             {
@@ -75,7 +75,7 @@ namespace CE.Application.ProductA
         public async Task<ApiResult<bool>> CreateCate(CategoriesCreateRequest request)
         {
             Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
-            var checkName = await _context.Categories.Where(x => x.CategoryName.Equals(request.CategoryName))
+            var checkName = await _context.AppUser.Where(x => x.CategoryName.Equals(request.CategoryName))
                 .Select(x => new Category()).FirstOrDefaultAsync();
             if (checkName != null)
             {
@@ -90,7 +90,7 @@ namespace CE.Application.ProductA
                 CategoryName = request.CategoryName,
                 Thumbnail = request.Thumbnail
             };
-            _context.Categories.Add(cate);
+            _context.AppUser.Add(cate);
 
             var result = await _context.SaveChangesAsync();
             if (result == 0)
@@ -111,7 +111,7 @@ namespace CE.Application.ProductA
 
         public async Task<ApiResult<PagedResult<CategoryViewModels>>> GetAllCatePaging(GetManageCatePagingRequest1 request)
         {
-            var query = from c in _context.Categories
+            var query = from c in _context.AppUser
                         select new {  c };
             if (!string.IsNullOrEmpty(request.Keyword))
             {
@@ -140,7 +140,7 @@ namespace CE.Application.ProductA
         public async Task<ApiResult<PagedResult<ProductViewModels>>> GetAllPaging(GetManageProductPagingRequest request)
         {
             var query = from p in _context.Products
-                        join c in _context.Categories on p.CategoryId equals c.CategoryId
+                        join c in _context.AppUser on p.CategoryId equals c.CategoryId
                         select new { p, c};
             if (!string.IsNullOrEmpty(request.Keyword))
             {
@@ -174,7 +174,7 @@ namespace CE.Application.ProductA
         public async Task<ApiResult<ProductViewModels>> GetByID(int productId)
         {
             var query = from p in _context.Products
-                        join c in _context.Categories on p.CategoryId equals c.CategoryId
+                        join c in _context.AppUser on p.CategoryId equals c.CategoryId
                         select new { c, p };
             var pVm = await query.Where(x => x.p.ProductId.Equals(productId)).Select(x => new ProductViewModels()
             {
@@ -195,7 +195,7 @@ namespace CE.Application.ProductA
         public async Task<ApiResult<List<ProductViewModels>>> GetProductByCategoryId(int categoryId)
         {
             var query = from p in _context.Products
-                        join c in _context.Categories on p.CategoryId equals c.CategoryId
+                        join c in _context.AppUser on p.CategoryId equals c.CategoryId
                         select new { c, p };
             var data = await query.Where(x => x.p.CategoryId.Equals(categoryId))
                .Select(x => new ProductViewModels()
@@ -228,7 +228,7 @@ namespace CE.Application.ProductA
                     UltilitiesService.AddOrUpdateError(errors, "ProductName", "This name already exists");
                 }
             }
-            var c = await _context.Categories.FindAsync(request.CatagoryId);
+            var c = await _context.AppUser.FindAsync(request.CatagoryId);
             if (c == null) UltilitiesService.AddOrUpdateError(errors, "categoryID", "category not found");
 
             if (errors.Count() > 0)

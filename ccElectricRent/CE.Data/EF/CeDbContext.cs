@@ -46,10 +46,11 @@ namespace CE.Data.EF
             modelBuilder.Seed();
         }
 
+        public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductItem> ProductItems { get; set; }
         public DbSet<ImageProduct> ImageProducts { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> AppUser { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartDetail> CartDetails { get; set; }
         public DbSet<Order> Orders { get; set; }

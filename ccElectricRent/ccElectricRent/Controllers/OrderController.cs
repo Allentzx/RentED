@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using CE.Application.OrderS;
+using CE.ViewModel.Order;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ccElectricRent.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class OrderController : ControllerBase
+    {
+        private readonly IOrderService _ordService;
+
+        public OrderController(IOrderService ordService)
+        {
+            _ordService = ordService;
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] OrderCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var result = await _ordService.Create(request);
+
+            if (!result.IsSuccessed)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, result);
+            }
+            return Ok(result);
+        }
+    }
+}
