@@ -78,7 +78,7 @@ namespace CE.Data.Migrations
                         new
                         {
                             Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "352637c4-2f76-462c-a824-f0b7fb566c1d",
+                            ConcurrencyStamp = "23783941-f101-46ce-b4fc-c2da7a8773a4",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -153,14 +153,14 @@ namespace CE.Data.Migrations
                             Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
                             Address = "249 ltt p10",
-                            ConcurrencyStamp = "74b605c8-3d71-48c9-a971-3d994b7b93a1",
+                            ConcurrencyStamp = "955dde8c-0efa-4796-9593-e5c21ed4e596",
                             Email = "abc@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Than Tuan",
                             LockoutEnabled = false,
                             NormalizedEmail = "abc@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMBKSUcWmaecO99rszNZFcGAFWX/9kMbyn2M5AspRjZXj5GuRTsDq+57ou1y10Ceyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED7QBuk9SXMzkTHmGb9ffqYZRHiCq4QDvAeio2wACmjJVJiRdG3otbjJZsTAM5DTEw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -194,11 +194,6 @@ namespace CE.Data.Migrations
 
             modelBuilder.Entity("CE.Data.Entity.CartDetail", b =>
                 {
-                    b.Property<int>("CartDeltailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
@@ -208,9 +203,7 @@ namespace CE.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("CartDeltailId");
-
-                    b.HasIndex("CartId");
+                    b.HasKey("CartId", "ProductId");
 
                     b.HasIndex("ProductId");
 
@@ -299,11 +292,6 @@ namespace CE.Data.Migrations
 
             modelBuilder.Entity("CE.Data.Entity.OrderDetail", b =>
                 {
-                    b.Property<int>("OrderDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -319,9 +307,7 @@ namespace CE.Data.Migrations
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
 
-                    b.HasKey("OrderDetailId");
-
-                    b.HasIndex("OrderId");
+                    b.HasKey("OrderId", "ProductId");
 
                     b.HasIndex("ProductId");
 

@@ -269,15 +269,13 @@ namespace CE.Data.Migrations
                 name: "CartDetails",
                 columns: table => new
                 {
-                    CartDeltailId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CartId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    CartId = table.Column<int>(type: "int", nullable: false)
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CartDetails", x => x.CartDeltailId);
+                    table.PrimaryKey("PK_CartDetails", x => new { x.CartId, x.ProductId });
                     table.ForeignKey(
                         name: "FK_CartDetails_Carts_CartId",
                         column: x => x.CartId,
@@ -337,17 +335,15 @@ namespace CE.Data.Migrations
                 name: "OrderDetails",
                 columns: table => new
                 {
-                    OrderDetailId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     RentDate = table.Column<DateTime>(type: "date", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    ReturnDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
+                    table.PrimaryKey("PK_OrderDetails", x => new { x.OrderId, x.ProductId });
                     table.ForeignKey(
                         name: "FK_OrderDetails_Orders_OrderId",
                         column: x => x.OrderId,
@@ -395,7 +391,7 @@ namespace CE.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "352637c4-2f76-462c-a824-f0b7fb566c1d", "Administrator role", "admin", "admin" });
+                values: new object[] { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "23783941-f101-46ce-b4fc-c2da7a8773a4", "Administrator role", "admin", "admin" });
 
             migrationBuilder.InsertData(
                 table: "AppUserRoles",
@@ -405,12 +401,7 @@ namespace CE.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "69BD714F-9576-45BA-B5B7-F00649BE00DE", 0, "249 ltt p10", "74b605c8-3d71-48c9-a971-3d994b7b93a1", "abc@gmail.com", true, "Than Tuan", false, null, "abc@gmail.com", "admin", "AQAAAAEAACcQAAAAEMBKSUcWmaecO99rszNZFcGAFWX/9kMbyn2M5AspRjZXj5GuRTsDq+57ou1y10Ceyg==", null, false, "", false, "admin" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CartDetails_CartId",
-                table: "CartDetails",
-                column: "CartId");
+                values: new object[] { "69BD714F-9576-45BA-B5B7-F00649BE00DE", 0, "249 ltt p10", "955dde8c-0efa-4796-9593-e5c21ed4e596", "abc@gmail.com", true, "Than Tuan", false, null, "abc@gmail.com", "admin", "AQAAAAEAACcQAAAAED7QBuk9SXMzkTHmGb9ffqYZRHiCq4QDvAeio2wACmjJVJiRdG3otbjJZsTAM5DTEw==", null, false, "", false, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CartDetails_ProductId",
@@ -426,11 +417,6 @@ namespace CE.Data.Migrations
                 name: "IX_ImageProducts_PrlItemId",
                 table: "ImageProducts",
                 column: "PrlItemId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_OrderId",
-                table: "OrderDetails",
-                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_ProductId",
