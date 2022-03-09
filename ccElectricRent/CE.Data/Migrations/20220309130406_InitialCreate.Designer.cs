@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CE.Data.Migrations
 {
     [DbContext(typeof(CeDbContext))]
-    [Migration("20220308134841_InitialCreate")]
+    [Migration("20220309130406_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,7 +80,7 @@ namespace CE.Data.Migrations
                         new
                         {
                             Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "23783941-f101-46ce-b4fc-c2da7a8773a4",
+                            ConcurrencyStamp = "daa79ced-1077-4c1a-a050-445dd0d37ba9",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -155,14 +155,14 @@ namespace CE.Data.Migrations
                             Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
                             Address = "249 ltt p10",
-                            ConcurrencyStamp = "955dde8c-0efa-4796-9593-e5c21ed4e596",
+                            ConcurrencyStamp = "86f4eab0-0a9a-4b83-844c-fc6c9e3af6e5",
                             Email = "abc@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Than Tuan",
                             LockoutEnabled = false,
                             NormalizedEmail = "abc@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAED7QBuk9SXMzkTHmGb9ffqYZRHiCq4QDvAeio2wACmjJVJiRdG3otbjJZsTAM5DTEw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAgumPS+20fm854jzmlBITuBFKLH+K+PtTUT0YhLi5D9KEBVdI6WbLkQHmOfM/NiVw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -196,6 +196,11 @@ namespace CE.Data.Migrations
 
             modelBuilder.Entity("CE.Data.Entity.CartDetail", b =>
                 {
+                    b.Property<int>("CartDeltailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
@@ -205,7 +210,9 @@ namespace CE.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("CartId", "ProductId");
+                    b.HasKey("CartDeltailId");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("ProductId");
 
@@ -294,6 +301,11 @@ namespace CE.Data.Migrations
 
             modelBuilder.Entity("CE.Data.Entity.OrderDetail", b =>
                 {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -309,7 +321,9 @@ namespace CE.Data.Migrations
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
 
-                    b.HasKey("OrderId", "ProductId");
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 

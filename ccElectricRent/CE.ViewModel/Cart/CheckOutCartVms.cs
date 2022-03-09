@@ -6,7 +6,7 @@ namespace CE.ViewModel.Cart
 {
    public class CheckOutCartVms
     {
-        public int CartId { get; set; }
+        public int CartDetailId { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
     }

@@ -12,7 +12,7 @@ namespace CE.Data.Configurations
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
             builder.ToTable("OrderDetails");
-            builder.HasKey(x => new { x.OrderId, x.ProductId });
+            builder.HasKey(x => x.OrderDetailId);
             builder.Property(x => x.Quantity).IsRequired();
             builder.Property(x => x.RentDate).HasColumnType("date");
             builder.Property(x => x.ReturnDate).HasColumnType("date");

@@ -3,6 +3,7 @@ using CE.Data.EF;
 using CE.Data.Entity;
 using CE.ViewModel.Cart;
 using CE.ViewModel.Common;
+using CE.ViewModel.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace CE.Application.CartS
         {
             _context = context;
         }
+
+      
+
         public async Task<ApiResult<bool>> Create(CartCreateRequest request)
         {
             Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
@@ -39,5 +43,7 @@ namespace CE.Application.CartS
             }
             return new ApiSuccessResult<bool>();
         }
+
+       
     }
 }
