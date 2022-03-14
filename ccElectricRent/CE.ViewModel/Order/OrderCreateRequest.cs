@@ -9,6 +9,7 @@ namespace CE.ViewModel.Order
     {
         public string UserId { get; set; }
         public int VoucherId { get; set; }
+        public double TotalPrice { get; set; }
         public OrderStatus Status { get; set; }
         public DateTime CreateDate { get; set; }
     }

@@ -29,6 +29,7 @@ namespace CE.Application.OrderS
             {
                 UserId = request.UserId,
                 VoucherId = request.VoucherId,
+                TotalPrice = request.TotalPrice,
                 CreateDate = request.CreateDate,
                 Status = request.Status
             };
