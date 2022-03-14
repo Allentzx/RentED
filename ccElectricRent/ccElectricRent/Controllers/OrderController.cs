@@ -34,5 +34,12 @@ namespace ccElectricRent.Controllers
             }
             return Ok(result);
         }
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageOrderPagingRequest1 request)
+        {
+            var or = await _ordService.GetAllPaging(request);
+            return Ok(or);
+        }
     }
 }

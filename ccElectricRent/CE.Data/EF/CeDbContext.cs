@@ -50,14 +50,12 @@ namespace CE.Data.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductItem> ProductItems { get; set; }
         public DbSet<ImageProduct> ImageProducts { get; set; }
-        public DbSet<Category> AppUser { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartDetail> CartDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Specific> Specifics { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
-
-
+        public DbSet<Category> Categories { get; set; }
     }
 }

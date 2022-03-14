@@ -7,11 +7,11 @@ namespace CE.ViewModel.Order
 {
     public class OrderViewModels
     {
-        public int OrderId { get; set; }
-        public string UserId { get; set; }
-        public string VoucherId { get; set; }
+        public int OrderId { set; get; }
+        public double TotalPrice { get; set; }
+        public DateTime CreateDate { set; get; }
+        public string UserId { set; get; }
+        public int VoucherId { get; set; }
         public OrderStatus Status { get; set; }
-        public DateTime CreateDate { get; set; }
-        public List<OrderDetailViewModels> OrderDetails { get; set; }
     }
 }

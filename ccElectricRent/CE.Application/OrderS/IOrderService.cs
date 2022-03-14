@@ -10,5 +10,6 @@ namespace CE.Application.OrderS
     public interface IOrderService
     {
         public Task<ApiResult<bool>> Create(OrderCreateRequest request);
+        public Task<ApiResult<PagedResult<OrderViewModels>>> GetAllPaging(GetManageOrderPagingRequest1 request);
     }
 }
