@@ -58,6 +58,9 @@ namespace CE.Application.OrderS
                 {
                     OrderId = x.o.OrderId,
                     UserId = x.u.Id,
+                    Address= x.u.Address,
+                    FullName= x.u.FullName,
+                    PhoneNumber= x.u.PhoneNumber,
                     VoucherId = x.v.VoucherId,
                     TotalPrice = x.o.TotalPrice,
                     CreateDate = x.o.CreateDate,
