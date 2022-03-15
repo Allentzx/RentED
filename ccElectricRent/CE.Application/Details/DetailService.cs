@@ -71,5 +71,24 @@ namespace CE.Application.Details
 
             return new ApiSuccessResult<PagedResult<OrderDetailViewModels>>(pagedResult);
         }
+
+        public async Task<ApiResult<List<OrderDetailViewModels>>> GetOrderDetailbyId(int orderId)
+        {
+            var query = from od in _context.OrderDetails
+                        join o in _context.Orders on od.OrderId equals o.OrderId
+                        select new { o, od };
+            var data = await query.Where(x => x.od.OrderId.Equals(orderId))
+               .Select(x => new OrderDetailViewModels()
+               {
+                   OrderDetailId = x.od.OrderDetailId,
+                   Quantity = x.od.Quantity,
+                   RentDate = x.od.RentDate,
+                   ReturnDate = x.od.ReturnDate,
+                   ProductId = x.od.ProductId,
+                   OrderId = x.od.OrderId
+               }).ToListAsync();
+
+            return new ApiSuccessResult<List<OrderDetailViewModels>>(data);
+        }
     }
 }

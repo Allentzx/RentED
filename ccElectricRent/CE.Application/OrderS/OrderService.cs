@@ -50,8 +50,8 @@ namespace CE.Application.OrderS
         {
             var query = from o in _context.Orders
                         join u in _context.AppUsers on o.UserId equals u.Id
-                        join v in _context.Vouchers on o.VoucherId equals v.VoucherId
-                        select new { u, v,o };
+                        join v in _context.Vouchers on o.VoucherId equals v.VoucherId 
+                        select new { u, v, o };
             int totalRow = await query.CountAsync();
             var data = await query.OrderBy(x => x.o.OrderId).Skip((request.PageIndex - 1) * request.PageSize)
                 .Take(request.PageSize).Select(x => new OrderViewModels()
@@ -61,7 +61,7 @@ namespace CE.Application.OrderS
                     Address= x.u.Address,
                     FullName= x.u.FullName,
                     PhoneNumber= x.u.PhoneNumber,
-                    VoucherId = x.v.VoucherId,
+                    //VoucherId = x.v.VoucherId,
                     TotalPrice = x.o.TotalPrice,
                     CreateDate = x.o.CreateDate,
                     Status = x.o.Status

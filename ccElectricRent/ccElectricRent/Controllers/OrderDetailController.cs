@@ -43,5 +43,12 @@ namespace ccElectricRent.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetOrderDetailbyId/{orderId}")]
+        public async Task<IActionResult> GetOrderDetailbyId(int orderId)
+        {
+            var categories = await _dService.GetOrderDetailbyId(orderId);
+            return Ok(categories);
+        }
+
     }
 }
