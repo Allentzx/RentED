@@ -11,5 +11,6 @@ namespace CE.Application.OrderS
     {
         public Task<ApiResult<bool>> Create(OrderCreateRequest request);
         public Task<ApiResult<PagedResult<OrderViewModels>>> GetAllPaging(GetManageOrderPagingRequest1 request);
+        public Task<ApiResult<bool>> UpdateStatus(int orderId, UpdateOrderStatus request);
     }
 }

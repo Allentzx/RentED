@@ -41,5 +41,21 @@ namespace ccElectricRent.Controllers
             var or = await _ordService.GetAllPaging(request);
             return Ok(or);
         }
+
+        [HttpPut("changeStatus/{orderId}")]
+        public async Task<IActionResult> UpdateStatus(int orderId, [FromBody] UpdateOrderStatus request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var result = await _ordService.UpdateStatus(orderId, request);
+
+            if (!result.IsSuccessed)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, result);
+            }
+            return Ok(result);
+        }
     }
 }

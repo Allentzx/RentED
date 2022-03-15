@@ -1,5 +1,6 @@
 ﻿using CE.Data.EF;
 using CE.Data.Entity;
+using CE.Data.Enum;
 using CE.ViewModel.Common;
 using CE.ViewModel.Order;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ namespace CE.Application.OrderS
         {
             _context = context;
         }
+
+        
         public async Task<ApiResult<bool>> Create(OrderCreateRequest request)
         {
             Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
@@ -69,6 +72,26 @@ namespace CE.Application.OrderS
             };
 
             return new ApiSuccessResult<PagedResult<OrderViewModels>>(pagedResult);
+        }
+
+
+        public async Task<ApiResult<bool>> UpdateStatus(int orderId, UpdateOrderStatus request)
+        {
+            Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
+            var o = await _context.Orders.FindAsync(orderId);
+            if (o == null) return new ApiErrorResult<bool>("Order does not exist");
+            if (errors.Count() > 0)
+            {
+                return new ApiErrorResult<bool>(errors);
+            }
+            o.Status = request.Status;
+            _context.Orders.Update(o);
+            var result = await _context.SaveChangesAsync();
+            if (result == 0)
+            {
+                return new ApiErrorResult<bool>("Update OrderStatus failed");
+            }
+            return new ApiSuccessResult<bool>();
         }
     }
 }

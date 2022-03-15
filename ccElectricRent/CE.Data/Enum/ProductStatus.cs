@@ -6,7 +6,7 @@ namespace CE.Data.Enum
 {
     public enum ProductStatus
     {
-        Stock,
-        Sold
+        Stock = 1,
+        Sold = 0
     }
 }
