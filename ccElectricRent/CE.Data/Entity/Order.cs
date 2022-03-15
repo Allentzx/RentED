@@ -11,7 +11,7 @@ namespace CE.Data.Entity
         public double TotalPrice { get; set; }
         public DateTime CreateDate { set; get; }
         public string UserId { set; get; }
-        public int VoucherId { get; set; }
+        public int? VoucherId { get; set; }
         public OrderStatus Status { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
         public Voucher Voucher { get; set; }
