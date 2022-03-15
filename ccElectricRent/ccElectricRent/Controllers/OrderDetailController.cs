@@ -27,7 +27,7 @@ namespace ccElectricRent.Controllers
             var or = await _dService.GetAllPaging(request);
             return Ok(or);
         }
-
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] OrderDetailCreateRequest request)
         {
             if (!ModelState.IsValid)
